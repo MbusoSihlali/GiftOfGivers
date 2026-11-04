@@ -256,7 +256,7 @@ dotnet test
 
 ## 🤝 Contributing
 
-This is a demonstration project showing advanced ASP.NET Core MVC patterns. Feel free to use it as a reference for your own projects.
+This project was developed by Mbuso Sihlali/Simphiwe Dladla/ Hlamulo Ndhlovu as a final-year project
 
 ## 📄 License
 
