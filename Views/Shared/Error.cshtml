@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card shadow text-center">
+                <div class="card-body p-5">
+                    <h1 class="text-danger mb-4">Error</h1>
+                    <p class="lead mb-4">
+                        An error occurred while processing your request.
+                    </p>
+                    @if (ViewData["ErrorMessage"] != null)
+                    {
+                        <div class="alert alert-danger">
+                            @ViewData["ErrorMessage"]
+                        </div>
+                    }
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Return to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

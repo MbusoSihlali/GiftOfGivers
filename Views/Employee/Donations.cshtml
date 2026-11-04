@@ -1,0 +1,54 @@
+@model IEnumerable<Donation>
+@{
+    ViewData["Title"] = "Donation Management";
+}
+
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="h3 mb-0">Donation Management</h1>
+            <a asp-action="Dashboard" class="btn btn-secondary mt-2">Back to Dashboard</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header bg-success text-white">
+            <h5 class="mb-0">All Donations</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Receipt #</th>
+                            <th>Donor Name</th>
+                            <th>Email</th>
+                            <th>Amount</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var donation in Model)
+                        {
+                            <tr>
+                                <td>@donation.ReceiptNumber</td>
+                                <td>@donation.DonorName</td>
+                                <td>@donation.DonorEmail</td>
+                                <td>@donation.Currency @donation.Amount.ToString("N2")</td>
+                                <td>@donation.DonationType</td>
+                                <td>
+                                    <span class="badge @(donation.Status == "Completed" ? "bg-success" : "bg-warning")">
+                                        @donation.Status
+                                    </span>
+                                </td>
+                                <td>@donation.CreatedAt.ToString("dd MMM yyyy HH:mm")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+@model Volunteer
+@{
+    ViewData["Title"] = "Volunteer Details";
+}
+
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="h3 mb-0">Volunteer Application Details</h1>
+            <a asp-action="Volunteers" class="btn btn-secondary mt-2">Back to Volunteers</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">Applicant Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <strong>Full Name:</strong>
+                            <p>@Model.FullName</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <strong>Email:</strong>
+                            <p>@Model.Email</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <strong>Phone Number:</strong>
+                            <p>@Model.PhoneNumber</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <strong>Location:</strong>
+                            <p>@Model.City, @Model.Province</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <strong>Skills:</strong>
+                            <p>@Model.Skills</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <strong>Status:</strong>
+                            <p>
+                                <span class="badge @(Model.Status switch
+                                {
+                                    "Pending" => "bg-warning",
+                                    "Approved" => "bg-success",
+                                    "Rejected" => "bg-danger",
+                                    _ => "bg-secondary"
+                                })">
+                                    @Model.Status
+                                </span>
+                            </p>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <strong>Availability:</strong>
+                            <p>@Model.Availability</p>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <strong>Motivation:</strong>
+                            <p>@Model.Motivation</p>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <strong>Application Date:</strong>
+                            <p>@Model.CreatedAt.ToString("dd MMM yyyy HH:mm")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Actions</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.Status == "Pending")
+                    {
+                        <form asp-action="ApproveVolunteer" method="post" class="mb-2">
+                            <input type="hidden" name="id" value="@Model.Id" />
+                            <button type="submit" class="btn btn-success w-100">Approve Application</button>
+                        </form>
+                        <form asp-action="RejectVolunteer" method="post">
+                            <input type="hidden" name="id" value="@Model.Id" />
+                            <button type="submit" class="btn btn-danger w-100">Reject Application</button>
+                        </form>
+                    }
+                    else if (Model.Status == "Approved")
+                    {
+                        <div class="alert alert-success">
+                            <strong>Approved</strong><br>
+                            This volunteer has been approved and will receive onboarding information.
+                        </div>
+                    }
+                    else if (Model.Status == "Rejected")
+                    {
+                        <div class="alert alert-danger">
+                            <strong>Rejected</strong><br>
+                            This application has been rejected.
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

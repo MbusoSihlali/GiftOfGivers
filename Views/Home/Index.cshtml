@@ -1,0 +1,148 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Home - Disaster Relief & Humanitarian Aid";
+}
+
+<!-- Hero Section -->
+<div class="p-5 mb-4 bg-gotg-gradient rounded-3 text-white shadow-sm position-relative overflow-hidden">
+    <div class="container-fluid py-4 position-relative z-1">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <span class="badge bg-warning text-dark fw-bold mb-2 px-3 py-2 text-uppercase tracking-wide">
+                    Emergency Disaster Response
+                </span>
+                <h1 class="display-4 fw-bold mb-3">Serving Humanity with Compassion</h1>
+                <p class="col-md-10 fs-5 mb-4 text-light-50">
+                    The Gift of the Givers Foundation provides swift, unconditional, and effective humanitarian assistance to communities facing disaster, drought, and hunger across South Africa and worldwide.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a asp-controller="Donate" asp-action="Index" class="btn btn-warning btn-lg fw-bold px-4 shadow-sm text-dark">
+                        Donate Now
+                    </a>
+                    <a asp-controller="Volunteer" asp-action="Index" class="btn btn-outline-light btn-lg px-4">
+                        Become a Volunteer
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block text-center">
+                <img src="~/images/giftofgivers.jpeg" alt="Logo" class="img-fluid rounded-circle p-3 bg-white shadow-lg hero-logo-img" style="max-height: 220px;" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats Bar -->
+<div class="row text-center mb-5 g-3">
+    <div class="col-md-3 col-6">
+        <div class="p-3 bg-white border-start border-4 border-success rounded shadow-sm">
+            <h2 class="fw-bold text-success mb-0">30+</h2>
+            <p class="text-muted small mb-0">Years of Service</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="p-3 bg-white border-start border-4 border-success rounded shadow-sm">
+            <h2 class="fw-bold text-success mb-0">45+</h2>
+            <p class="text-muted small mb-0">Countries Reached</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="p-3 bg-white border-start border-4 border-warning rounded shadow-sm">
+            <h2 class="fw-bold text-warning mb-0">24/7</h2>
+            <p class="text-muted small mb-0">Emergency Dispatch</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="p-3 bg-white border-start border-4 border-success rounded shadow-sm">
+            <h2 class="fw-bold text-success mb-0">100%</h2>
+            <p class="text-muted small mb-0">Humanitarian Aid</p>
+        </div>
+    </div>
+</div>
+
+<!-- Core Operations & Action Cards -->
+<h3 class="fw-bold text-success mb-4 text-center">How You Can Make a Difference</h3>
+<div class="row g-4 mb-5">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 transition-hover">
+            <div class="card-body p-4 text-center">
+                <div class="rounded-circle bg-success bg-opacity-10 text-success d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                    </svg>
+                </div>
+                <h5 class="card-title fw-bold">Emergency Donations</h5>
+                <p class="card-text text-muted">
+                    Support one-time or monthly relief efforts. Instantly receive Section 18A tax-deductible certificates for your contributions.
+                </p>
+                <a asp-controller="Donate" asp-action="Index" class="btn btn-outline-success fw-bold w-100 mt-2">Make a Contribution</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 transition-hover">
+            <div class="card-body p-4 text-center">
+                <div class="rounded-circle bg-success bg-opacity-10 text-success d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+                    </svg>
+                </div>
+                <h5 class="card-title fw-bold">Volunteer Program</h5>
+                <p class="card-text text-muted">
+                    Join our network of medical personnel, logistics specialists, and general field supporters deployed during crisis events.
+                </p>
+                <a asp-controller="Volunteer" asp-action="Index" class="btn btn-outline-success fw-bold w-100 mt-2">Sign Up to Volunteer</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 transition-hover">
+            <div class="card-body p-4 text-center">
+                <div class="rounded-circle bg-warning bg-opacity-20 text-dark d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-shield-lock-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 0c-.69 0-1.382.04-2.073.115C4.227.288 3.238.653 2.4 1.29c-.838.636-1.442 1.488-1.748 2.47C.345 4.743.208 5.862.208 7.001c0 4.148 2.5 7.854 6.368 9.294a3.1 3.1 0 0 0 2.848 0c3.868-1.44 6.368-5.146 6.368-9.294 0-1.139-.137-2.258-.444-3.241-.306-.982-.91-1.834-1.748-2.47-.838-.637-1.827-1.002-3.527-1.175A28.447 28.447 0 0 0 8 0zm0 6a1.5 1.5 0 0 1 1.5 1.5V9a1.5 1.5 0 0 1-3 0V7.5A1.5 1.5 0 0 1 8 6z" />
+                    </svg>
+                </div>
+                <h5 class="card-title fw-bold">Employee Portal</h5>
+                <p class="card-text text-muted">
+                    Restricted access portal for Gift of the Givers staff to publish project updates and review volunteer registrations.
+                </p>
+                <a asp-controller="Account" asp-action="Login" class="btn btn-outline-dark fw-bold w-100 mt-2">Access Portal</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activity Section -->
+@if (ViewBag.RecentDonations != null)
+{
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-success text-white">
+            <h5 class="mb-0">Recent Donations</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Donor</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var donation in ViewBag.RecentDonations)
+                        {
+                            <tr>
+                                <td>@donation.DonorName</td>
+                                <td>@donation.Currency @donation.Amount.ToString("N2")</td>
+                                <td>@donation.CreatedAt.ToString("dd MMM yyyy")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}

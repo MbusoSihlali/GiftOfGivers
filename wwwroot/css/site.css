@@ -1,0 +1,113 @@
+
+
+/* Gift of the Givers Custom Palette */
+:root {
+    --gotg-green-dark: #004d25;
+    --gotg-green-main: #008542;
+    --gotg-green-hover: #006834;
+    --gotg-gold: #ffc72c;
+    --gotg-gold-hover: #e0ac1b;
+}
+
+/* Hero Section Gradient Background */
+.bg-gotg-gradient {
+    background: linear-gradient(135deg, var(--gotg-green-dark) 0%, var(--gotg-green-main) 100%);
+}
+
+/* Card Hover Elevation Effect */
+.transition-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+    .transition-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    }
+
+/* Hero Logo Image Border styling */
+.hero-logo-img {
+    border: 4px solid var(--gotg-gold);
+}
+
+.text-light-50 {
+    color: white;
+}
+
+/* Base Navbar Background & Shadow */
+.bg-gotg {
+    background: linear-gradient(135deg, var(--gotg-green-dark) 0%, var(--gotg-green-main) 100%) !important;
+    border-bottom: 3px solid var(--gotg-gold);
+    transition: all 0.3s ease;
+}
+
+/* Logo Image & Brand Title Alignment */
+.navbar-brand {
+    font-size: 1.25rem;
+    letter-spacing: 0.3px;
+    transition: transform 0.2s ease;
+}
+
+    .navbar-brand:hover {
+        transform: scale(1.02);
+    }
+
+    .navbar-brand img {
+        filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+    }
+
+/* Regular Navigation Links */
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+    /* Nav Link Hover & Active Effects */
+    .navbar-dark .navbar-nav .nav-link:hover,
+    .navbar-dark .navbar-nav .nav-link:focus {
+        color: #ffffff !important;
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+
+/* Special Styling for Employee Portal Button */
+.nav-link.text-warning {
+    color: var(--gotg-gold) !important;
+    background-color: rgba(255, 199, 44, 0.1);
+    border: 1px solid var(--gotg-gold) !important;
+    transition: all 0.2s ease;
+}
+
+    .nav-link.text-warning:hover {
+        color: #1a1a1a !important;
+        background-color: var(--gotg-gold) !important;
+        box-shadow: 0 2px 8px rgba(255, 199, 44, 0.4);
+    }
+
+/* Logout Button Styling Inside Partial */
+.navbar .btn-link.nav-link {
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+}
+
+    .navbar .btn-link.nav-link:hover {
+        background-color: rgba(220, 53, 69, 0.2); /* Soft red indicator on logout hover */
+        color: #ff8080 !important;
+    }
+
+/* User Identity Tag */
+.navbar-text-user {
+    color: #ffffff;
+    font-size: 0.9rem;
+    padding-right: 0.75rem;
+}
+
+/* Mobile Toggler Button Customization */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.25rem rgba(255, 199, 44, 0.3) !important;
+    }

@@ -1,0 +1,183 @@
+@model DashboardViewModel
+@{
+    ViewData["Title"] = "Employee Dashboard";
+}
+
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="h3 mb-0">Employee Dashboard</h1>
+            <p class="text-muted">Welcome back! Here's an overview of the foundation's activities.</p>
+        </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-3">
+            <div class="card bg-success text-white h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Total Donations</h5>
+                    <h2 class="display-4 fw-bold">@Model.TotalDonations.ToString("N2")</h2>
+                    <small>Raised to date</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-dark h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Pending Volunteers</h5>
+                    <h2 class="display-4 fw-bold">@Model.PendingVolunteerCount</h2>
+                    <small>Applications awaiting review</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Active Projects</h5>
+                    <h2 class="display-4 fw-bold">@Model.ActiveProjectCount</h2>
+                    <small>Currently running</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-primary text-white h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Quick Actions</h5>
+                    <div class="d-flex flex-column gap-2 mt-3">
+                        <a asp-action="Donations" class="btn btn-light btn-sm">View Donations</a>
+                        <a asp-action="Volunteers" class="btn btn-light btn-sm">View Volunteers</a>
+                        <a asp-action="Projects" class="btn btn-light btn-sm">Manage Projects</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Recent Donations -->
+        <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Recent Donations</h5>
+                    <a asp-action="Donations" class="btn btn-sm btn-light">View All</a>
+                </div>
+                <div class="card-body">
+                    @if (Model.RecentDonations.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-sm table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Donor</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var donation in Model.RecentDonations.Take(5))
+                                    {
+                                        <tr>
+                                            <td>@donation.DonorName</td>
+                                            <td>@donation.Currency @donation.Amount.ToString("N2")</td>
+                                            <td>@donation.CreatedAt.ToString("dd MMM yyyy")</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted text-center">No recent donations</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Volunteers -->
+        <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Pending Volunteer Applications</h5>
+                    <a asp-action="Volunteers" class="btn btn-sm btn-dark">View All</a>
+                </div>
+                <div class="card-body">
+                    @if (Model.PendingVolunteers.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-sm table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Skills</th>
+                                        <th>Location</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var volunteer in Model.PendingVolunteers.Take(5))
+                                    {
+                                        <tr>
+                                            <td>@volunteer.FullName</td>
+                                            <td>@volunteer.Skills</td>
+                                            <td>@volunteer.City, @volunteer.Province</td>
+                                            <td>
+                                                <a asp-action="VolunteerDetails" asp-route-id="@volunteer.Id" class="btn btn-sm btn-primary">Review</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted text-center">No pending applications</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Active Projects -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Active Projects</h5>
+                    <a asp-action="Projects" class="btn btn-sm btn-light">View All</a>
+                </div>
+                <div class="card-body">
+                    @if (Model.ActiveProjects.Any())
+                    {
+                        <div class="row g-3">
+                            @foreach (var project in Model.ActiveProjects.Take(3))
+                            {
+                                <div class="col-md-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h6 class="card-title fw-bold">@project.Title</h6>
+                                            <p class="card-text small text-muted">@project.Description</p>
+                                            <div class="progress mb-2" style="height: 10px;">
+                                                @{
+                                                    var progress = (project.RaisedAmount / project.TargetAmount) * 100;
+                                                }
+                                                <div class="progress-bar bg-success" style="width: @progress%">@progress.ToString("0")%</div>
+                                            </div>
+                                            <small class="text-muted">@project.RaisedAmount.ToString("N2") / @project.TargetAmount.ToString("N2") raised</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted text-center">No active projects</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

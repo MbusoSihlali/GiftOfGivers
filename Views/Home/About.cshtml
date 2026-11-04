@@ -1,0 +1,66 @@
+@{
+    ViewData["Title"] = "About Us - Gift of the Givers";
+}
+
+<!-- Hero Header -->
+<div class="p-4 p-md-5 mb-4 bg-gotg-gradient rounded-3 text-white shadow-sm">
+    <div class="container-fluid py-2">
+        <h1 class="display-5 fw-bold mb-2">About Gift of the Givers</h1>
+        <p class="fs-5 text-light-50 mb-0">
+            The largest disaster response non-governmental organisation of African origin on the African continent.
+        </p>
+    </div>
+</div>
+
+<!-- Image & Foundation Overview Section -->
+<div class="row align-items-center mb-5 g-4">
+    <div class="col-lg-6">
+        <div class="position-relative">
+            <img src="~/images/gift.jpeg" alt="Gift of the Givers Field Operations" class="img-fluid rounded-3 shadow-lg border border-3 border-success" />
+            <div class="bg-success text-white p-3 rounded-3 position-absolute bottom-0 start-0 m-3 shadow d-none d-sm-block">
+                <h6 class="fw-bold mb-0">Swift & Unconditional Aid</h6>
+                <small>Serving communities across South Africa & globally</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <span class="badge bg-warning text-dark fw-bold text-uppercase px-3 py-2 mb-2">Humanitarian Response</span>
+        <h2 class="fw-bold text-success mb-3">Best Among People Are Those Who Benefit Mankind</h2>
+        <p class="text-secondary leading-relaxed">
+            Established in response to the growing need for organised disaster response, the Gift of the Givers Foundation operates on the core principles of compassion, efficiency, and resilience.
+        </p>
+        <p class="text-secondary leading-relaxed">
+            From deploying specialized medical teams and search-and-rescue specialists during natural disasters to digging boreholes during severe droughts, our mission is to bring hope where it is needed most.
+        </p>
+        <div class="d-flex gap-3 mt-4">
+            <a asp-controller="Donate" asp-action="Index" class="btn btn-success fw-bold px-4">Support Our Cause</a>
+            <a asp-controller="Volunteer" asp-action="Index" class="btn btn-outline-success px-4">Join Our Team</a>
+        </div>
+    </div>
+</div>
+
+<!-- Mission & Vision Cards -->
+<div class="row g-4 mb-5">
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm border-0 border-start border-5 border-success p-3">
+            <div class="card-body">
+                <h4 class="fw-bold text-success mb-3">Our Mission</h4>
+                <p class="text-secondary leading-relaxed">
+                    To deliver swift, unconditional, and effective humanitarian assistance to individuals suffering as a result of natural disasters, conflict, poverty, or drought—irrespective of race, religion, color, or political affiliation.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm border-0 border-start border-5 border-warning p-3">
+            <div class="card-body">
+                <h4 class="fw-bold text-dark mb-3">Core Pillars</h4>
+                <ul class="list-unstyled text-secondary mb-0">
+                    <li class="mb-2"><strong>Direct Delivery:</strong> Aid is handed directly to affected communities.</li>
+                    <li class="mb-2"><strong>Rapid Mobilisation:</strong> Teams deployed within hours of emergency dispatch.</li>
+                    <li class="mb-2"><strong>Long-term Recovery:</strong> Restoring clean water, medical access, and education.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

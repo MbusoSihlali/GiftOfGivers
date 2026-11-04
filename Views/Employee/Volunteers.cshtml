@@ -1,0 +1,71 @@
+@model IEnumerable<Volunteer>
+@{
+    ViewData["Title"] = "Volunteer Management";
+}
+
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="h3 mb-0">Volunteer Management</h1>
+            <a asp-action="Dashboard" class="btn btn-secondary mt-2">Back to Dashboard</a>
+        </div>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <div class="card">
+        <div class="card-header bg-warning text-dark">
+            <h5 class="mb-0">Volunteer Applications</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Location</th>
+                            <th>Skills</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var volunteer in Model)
+                        {
+                            <tr>
+                                <td>@volunteer.FullName</td>
+                                <td>@volunteer.Email</td>
+                                <td>@volunteer.PhoneNumber</td>
+                                <td>@volunteer.City, @volunteer.Province</td>
+                                <td>@volunteer.Skills</td>
+                                <td>
+                                    <span class="badge @(volunteer.Status switch
+                                    {
+                                        "Pending" => "bg-warning",
+                                        "Approved" => "bg-success",
+                                        "Rejected" => "bg-danger",
+                                        _ => "bg-secondary"
+                                    })">
+                                        @volunteer.Status
+                                    </span>
+                                </td>
+                                <td>@volunteer.CreatedAt.ToString("dd MMM yyyy")</td>
+                                <td>
+                                    <a asp-action="VolunteerDetails" asp-route-id="@volunteer.Id" class="btn btn-sm btn-primary">Details</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
